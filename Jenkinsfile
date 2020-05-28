@@ -1,4 +1,3 @@
-TAG=env.BUILD_NUMBER
 pipeline{
     agent any
     stages{
