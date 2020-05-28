@@ -11,9 +11,10 @@ pipeline{
         stage('Build the project using maven'){
             steps{
                 script{
-                    dir("scripts") {
-                        echo "Hello"
-                    }
+                    bat 'build.bat'
+                    //dir("scripts") {
+                    //    echo "Hello"
+                    //}
                     //cd scripts\
                     //call build.bat
                 }
