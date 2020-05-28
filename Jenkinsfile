@@ -11,7 +11,7 @@ pipeline{
         stage('Build the project using maven'){
             steps{
                 script{
-                    cd scripts
+                    cd scripts\
                     //call build.bat
                 }
             }
