@@ -11,11 +11,11 @@ pipeline{
         stage('Build the project using maven'){
             steps{
                 script{
+                    bat 'mvnw.cmd clean package'
                     dir("scripts") {
                         echo "Hello"
                         bat 'build.bat'
                     }
-                    mvnw.cmd clean package
                 }
             }
         }
