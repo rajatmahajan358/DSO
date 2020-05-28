@@ -19,9 +19,10 @@ pipeline{
         stage('Docker Image Build'){
             steps{
                 script{
-                    dir('scripts'){
-                        bat docker.bat ${env.BUILD_NUMBER}
-                    } 
+                    bat "docker build -t rajatmahajan/dockerregistry:\"${env.BUILD_NUMBER}\" ."
+                    //dir('scripts'){
+                    //    bat docker.bat ${env.BUILD_NUMBER}
+                    //} 
                 }
             }
         }
