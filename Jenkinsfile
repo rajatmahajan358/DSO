@@ -1,3 +1,4 @@
+TAG=env.BUILD_NUMBER
 pipeline{
     agent any
     stages{
@@ -22,7 +23,7 @@ pipeline{
         stage('Docker Image Build'){
             steps{
                 script{
-                    bat 'docker build -t rajatmahajan/dockerregistry:sampleapp .'
+                    bat 'docker build -t rajatmahajan/dockerregistry:${TAG} .'
                 }
             }
         }
