@@ -12,7 +12,7 @@ pipeline{
             steps{
                 script{
                     cd scripts
-                    call build.bat
+                    //call build.bat
                 }
             }
         }
