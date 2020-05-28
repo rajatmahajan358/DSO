@@ -8,5 +8,13 @@ pipeline{
                 }
             }
         }
+        stage('Build the project using maven'){
+            steps{
+                script{
+                    cd scripts
+                    call build.bat
+                }
+            }
+        }
     }
 }
