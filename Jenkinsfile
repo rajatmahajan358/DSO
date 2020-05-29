@@ -28,7 +28,9 @@ pipeline{
         stage('Image push to hub'){
             steps{
                 script{
-                    bat "docker push rajatmahajan/smpregistry:\"${env.BUILD_NUMBER}\""
+                   withDockerRegistry(credentialsId: '95689e16-1a30-4abd-a68d-66c6d6e88976') {
+                       bat "docker push rajatmahajan/smpregistry:\"${env.BUILD_NUMBER}\""
+                   }                       
                 }
             }
         }
