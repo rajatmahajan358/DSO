@@ -1,9 +1,11 @@
-environment{
-    registry = "rajatmahajan/smpregistry"
-    registryCredential = 'Dockerhub'
-}
 pipeline{
     agent any
+
+    environment{
+        registry = "rajatmahajan/smpregistry"
+        registryCredential = 'Dockerhub'
+    }
+
     stages{
         stage('Git checkout SCM'){
             steps{
