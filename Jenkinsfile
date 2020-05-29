@@ -18,10 +18,17 @@ pipeline{
         stage('Docker Image Build'){
             steps{
                 script{
-                    bat "docker build -t rajatmahajan/dockerregistry:\"${env.BUILD_NUMBER}\" ."
+                    bat "docker build -t rajatmahajan/smpregistry:\"${env.BUILD_NUMBER}\" ."
                     //dir('scripts'){
                     //    bat docker.bat ${env.BUILD_NUMBER}
                     //} 
+                }
+            }
+        }
+        stage('Image push to hub'){
+            steps{
+                script{
+                    bat "docker push rajatmahajan/smpregistry:\"${env.BUILD_NUMBER}\""
                 }
             }
         }
