@@ -1,3 +1,7 @@
+environment{
+    registry = "rajatmahajan/smpregistry"
+    registryCredential = 'Dockerhub'
+}
 pipeline{
     agent any
     stages{
@@ -28,9 +32,10 @@ pipeline{
         stage('Image push to hub'){
             steps{
                 script{
-                   withDockerRegistry(credentialsId: 'Dockerhub', url: 'https://registry.hub.docker.com') {
-                       bat "docker push rajatmahajan/smpregistry:\"${env.BUILD_NUMBER}\""
-                   }                       
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
+                    }                       
                 }
             }
         }
