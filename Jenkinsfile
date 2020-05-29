@@ -32,10 +32,10 @@ pipeline{
         stage('Image push to hub'){
             steps{
                 script{
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                     docker.withRegistry( '', registryCredential ) {
                         dockerImage.push()
-                    }                       
+                    } 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"                      
                 }
             }
         }
